@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "DoktorSifreDegistir";
+}
+
+<link href="~/Css/input.css" rel="stylesheet" type="text/css" />
+<h2>ŞİFRE DEĞİŞTİRME EKRANI</h2>
+
+@using (Html.BeginForm("DoktorSifreDegistir", "Calisan", FormMethod.Post))
+{
+    <label>ŞİFRESİ DEĞŞTİRİLECEK DOKTORUN TCSİNİ GİRİNİZ</label>
+    <input type="text" name="sifreDegistirTc" /><br/>
+    <label>DOKTOR İÇİN YENİ BİR ŞİFRE BELİRLEYİNİZ</label>
+    <input type="text" name="yeniSifre" /><br/>
+    <input value="Şifreyi Güncelle" class="amethyst-flat-button" type="submit" />
+}

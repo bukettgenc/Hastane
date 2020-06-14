@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HastaneModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="HastaneModelStoreContainer">
+    <EntitySet Name="Calisanlar" EntityType="HastaneModel.Store.Calisanlar" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Doktorlar" EntityType="HastaneModel.Store.Doktorlar" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Musteriler" EntityType="HastaneModel.Store.Musteriler" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Randevular" EntityType="HastaneModel.Store.Randevular" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DoktorTc" EntityType="HastaneModel.Store.DoktorTc" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HastaTc" EntityType="HastaneModel.Store.HastaTc" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reçeteler" EntityType="HastaneModel.Store.Reçeteler" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CalisanTc" EntityType="HastaneModel.Store.CalisanTc" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Raporlar" EntityType="HastaneModel.Store.Raporlar" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Calisanlar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CalisanAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CalisanSifre" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CalisanTc" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Doktorlar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoktorAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Bolum" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DoktorTc" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DoktorSifre" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Musteriler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MusteriAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="MusteriSifre" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="MusteriTc" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Randevular">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HastaAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DoktorAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Bolum" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="RandevuSaati" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="HastaTc" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DoktorTc" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DoktorTc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tcNoDoktor" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HastaTc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tcNoHasta" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="HastaAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Reçeteler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HastaAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Tarih" Type="datetime" Nullable="true" />
+    <Property Name="DoktorAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Ilaclar" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Tutar" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CalisanTc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tcNoCalisan" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Raporlar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HastaAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Tarih" Type="datetime" Nullable="true" />
+    <Property Name="RaporBaslangic" Type="datetime" Nullable="true" />
+    <Property Name="RaporBitis" Type="datetime" Nullable="true" />
+    <Property Name="RaporSebebi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="RaporuVerenDoktor" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+</Schema>

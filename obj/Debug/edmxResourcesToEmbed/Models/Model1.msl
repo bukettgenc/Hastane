@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HastaneModelStoreContainer" CdmEntityContainer="HastaneEntities">
+    <EntitySetMapping Name="Calisanlar">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.Calisanlar)">
+        <MappingFragment StoreEntitySet="Calisanlar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CalisanAdi" ColumnName="CalisanAdi" />
+          <ScalarProperty Name="CalisanSifre" ColumnName="CalisanSifre" />
+          <ScalarProperty Name="CalisanTc" ColumnName="CalisanTc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doktorlar">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.Doktorlar)">
+        <MappingFragment StoreEntitySet="Doktorlar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DoktorAdi" ColumnName="DoktorAdi" />
+          <ScalarProperty Name="Bolum" ColumnName="Bolum" />
+          <ScalarProperty Name="DoktorTc" ColumnName="DoktorTc" />
+          <ScalarProperty Name="DoktorSifre" ColumnName="DoktorSifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Musteriler">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.Musteriler)">
+        <MappingFragment StoreEntitySet="Musteriler">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MusteriAdi" ColumnName="MusteriAdi" />
+          <ScalarProperty Name="MusteriSifre" ColumnName="MusteriSifre" />
+          <ScalarProperty Name="MusteriTc" ColumnName="MusteriTc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Randevular">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.Randevular)">
+        <MappingFragment StoreEntitySet="Randevular">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HastaAdi" ColumnName="HastaAdi" />
+          <ScalarProperty Name="DoktorAdi" ColumnName="DoktorAdi" />
+          <ScalarProperty Name="Bolum" ColumnName="Bolum" />
+          <ScalarProperty Name="RandevuSaati" ColumnName="RandevuSaati" />
+          <ScalarProperty Name="HastaTc" ColumnName="HastaTc" />
+          <ScalarProperty Name="DoktorTc" ColumnName="DoktorTc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoktorTc">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.DoktorTc)">
+        <MappingFragment StoreEntitySet="DoktorTc">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="tcNoDoktor" ColumnName="tcNoDoktor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HastaTc">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.HastaTc)">
+        <MappingFragment StoreEntitySet="HastaTc">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="tcNoHasta" ColumnName="tcNoHasta" />
+          <ScalarProperty Name="HastaAdi" ColumnName="HastaAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reçeteler">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.Reçeteler)">
+        <MappingFragment StoreEntitySet="Reçeteler">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HastaAdi" ColumnName="HastaAdi" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="DoktorAdi" ColumnName="DoktorAdi" />
+          <ScalarProperty Name="Ilaclar" ColumnName="Ilaclar" />
+          <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CalisanTc">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.CalisanTc)">
+        <MappingFragment StoreEntitySet="CalisanTc">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="tcNoCalisan" ColumnName="tcNoCalisan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Raporlar">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.Raporlar)">
+        <MappingFragment StoreEntitySet="Raporlar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HastaAdi" ColumnName="HastaAdi" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="RaporBaslangic" ColumnName="RaporBaslangic" />
+          <ScalarProperty Name="RaporBitis" ColumnName="RaporBitis" />
+          <ScalarProperty Name="RaporSebebi" ColumnName="RaporSebebi" />
+          <ScalarProperty Name="RaporuVerenDoktor" ColumnName="RaporuVerenDoktor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

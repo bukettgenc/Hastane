@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5b20161566f948a69f613c05c1f4469b" Name="Diagram1">
+        <EntityTypeShape EntityType="HastaneModel.Calisanlar" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.Doktorlar" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.Musteriler" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.Randevular" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.DoktorTc" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HastaneModel.HastaTc" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="HastaneModel.Reçeteler" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="HastaneModel.CalisanTc" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HastaneModel.Raporlar" Width="1.5" PointX="0.75" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

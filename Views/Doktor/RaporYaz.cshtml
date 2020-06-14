@@ -1,0 +1,84 @@
+﻿@using System.Linq
+@using Hastane.Models
+
+@{
+    ViewBag.Title = "RaporYaz";
+}
+
+<link href="~/Css/input.css" rel="stylesheet" type="text/css" />
+<h2>RaporYaz</h2>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Reçete Yaz", "DoktorAnasayfa", "Doktor")</li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Rapor Yaz", "RaporYaz", "Doktor")</li>
+
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Reçeteler", "Receteler", "Doktor")</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h3>Hastayı Seçiniz</h3>
+
+@using (Html.BeginForm("RaporYaz", "Doktor", FormMethod.Post)){
+
+        HastaneEntities db = new HastaneEntities();
+    string doktorTc = ViewBag.doktorTc;
+    var hastaListe = db.Randevular.Where(x => x.DoktorTc == doktorTc).Select(x => new { x.Id, x.HastaAdi, x.Bolum, x.DoktorAdi, x.HastaTc, x.RandevuSaati }).ToList();
+
+    foreach (var item in hastaListe)
+    {
+        <br />
+        <div style="background-color: aqua">
+            <input id="hasta"
+                   name="hasta"
+                   type="radio"
+                   value=@item.HastaAdi />
+            <br />
+            <label>
+                Hasta Adı:
+            </label>@item.HastaAdi<br />
+            <label>
+                Hasta Tcsi:
+            </label> @item.HastaTc <br />
+            <label>
+                Doktor Adı:
+            </label> @item.DoktorAdi <br />
+            <label>
+                Doktorun Bölümü:
+            </label>@item.Bolum<br />
+            <label>
+                Randevu Saati:
+            </label>@item.RandevuSaati <br />
+        </div>
+
+    }
+
+    <label>Rapor Sebebi</label>
+    <input type="text" name="raporSebebi" />
+    <br />
+    <label>baslangic</label>
+    <input type="text" name="baslangicTarihi" /><br/>
+    <label>bitis</label>
+    <input type="text" name="bitisTarihi" /><br/>
+    <br />
+    <button class="turquoise-flat-button" onClick="location.href='/Doktor/RaporYaz'">Rapor Yaz</button>
+}
+
+

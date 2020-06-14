@@ -1,0 +1,66 @@
+﻿@using Hastane.Models
+@model  Hastane.Models.TasiyiciModel
+@{
+    ViewBag.Title = "MusteriAnasayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    HastaneEntities db = new HastaneEntities();
+    List<Doktorlar> doktorList = db.Doktorlar.ToList();
+}
+<h4>Doktor Seçiniz</h4>
+<br />
+
+<link href="~/Css/input.css" rel="stylesheet" type="text/css" />
+@using (Html.BeginForm("MusteriAnasayfa", "Giris", FormMethod.Post))
+{
+    foreach (var item in doktorList)
+    {
+        <label>@item.DoktorAdi</label>
+        <label name="bolum">(Bölüm:@item.Bolum)</label>
+
+        <input id="doktor"
+               name="doktor"
+               type="radio"
+               value=@item.DoktorAdi />
+        <br />
+    }
+    <br />
+    <h4>Randevu saatini seçiniz</h4>
+    <br />
+    <select name="dropdown">
+        <option value="9:00">9:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+    </select>
+    <br />
+    <input class="amethyst-flat-button" type="submit" value="Randevu Al" />
+}
+
+@{
+    string tcNo = ViewBag.tcNo;
+    var musteriListe = db.Randevular.Where(x => x.HastaTc == tcNo).Select(x => new { x.Id, x.HastaAdi, x.Bolum, x.DoktorAdi, x.HastaTc, x.RandevuSaati }).ToList();
+    <h3>RANDEVULARIM</h3>
+    foreach (var item in musteriListe)
+    {
+        <br />
+        <div style="background-color: aqua">
+            <label>
+                Hasta Adı:
+            </label>@item.HastaAdi<br /><label>
+                Hasta Tcsi:
+            </label> @item.HastaTc <br /><label>
+                Doktor Adı:
+            </label> @item.DoktorAdi <br /> <label>
+                Doktorun Bölümü:
+            </label>@item.Bolum<br /> <label>
+                Randevu Saati:
+            </label>@item.RandevuSaati <br />
+            <button onClick="location.href='/Giris/Sil/@item.Id'">Sil</button>
+        </div>
+
+    }
+
+}

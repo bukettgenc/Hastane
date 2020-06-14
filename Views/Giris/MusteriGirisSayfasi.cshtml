@@ -1,0 +1,17 @@
+﻿@model  Hastane.Models.TasiyiciModel
+@{
+    ViewBag.Title = "GirisSayfasi";
+}
+
+<link href="~/Css/input.css" rel="stylesheet" type="text/css" />
+<h2>Hasta Giriş Sayfası</h2>
+@using (Html.BeginForm("MusteriGirisSayfasi", "Giris", FormMethod.Post))
+{
+    <label>Tcnizi giriniz</label>
+    <input type="text" name="tcNo" />
+    <br />
+    <label>Şifre</label>
+    <input type="text" name="sifre" />
+    <br />
+    <input value="Giriş Yap" type="submit" class="sun-flower-button"/>
+}

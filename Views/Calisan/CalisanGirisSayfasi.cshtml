@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "GirisSayfasi";
+}
+
+<h2>Çalışan Giriş Sayfası</h2>
+
+<link href="~/Css/input.css" rel="stylesheet" type="text/css" />
+@using (Html.BeginForm("CalisanGirisSayfasi", "Calisan", FormMethod.Post))
+{
+    <label>Çalışan Tc</label>
+    <input type="text" name="tcNo" />
+    <br />
+    <label>Şifre</label>
+    <input type="text" name="sifre" />
+    <br />
+    <input value="Giriş Yap" type="submit" class="turquoise-flat-button" />
+}

@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HastaneModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="HastaneModelStoreContainer">
+    <EntitySet Name="Calisanlar" EntityType="HastaneModel.Store.Calisanlar" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Doktorlar" EntityType="HastaneModel.Store.Doktorlar" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Musteriler" EntityType="HastaneModel.Store.Musteriler" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Randevular" EntityType="HastaneModel.Store.Randevular" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DoktorTc" EntityType="HastaneModel.Store.DoktorTc" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HastaTc" EntityType="HastaneModel.Store.HastaTc" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reçeteler" EntityType="HastaneModel.Store.Reçeteler" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CalisanTc" EntityType="HastaneModel.Store.CalisanTc" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Raporlar" EntityType="HastaneModel.Store.Raporlar" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Calisanlar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CalisanAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CalisanSifre" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CalisanTc" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Doktorlar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoktorAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Bolum" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DoktorTc" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DoktorSifre" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Musteriler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MusteriAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="MusteriSifre" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="MusteriTc" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Randevular">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HastaAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DoktorAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Bolum" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="RandevuSaati" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="HastaTc" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DoktorTc" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DoktorTc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tcNoDoktor" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HastaTc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tcNoHasta" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="HastaAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Reçeteler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HastaAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Tarih" Type="datetime" Nullable="true" />
+    <Property Name="DoktorAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Ilaclar" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Tutar" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CalisanTc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tcNoCalisan" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Raporlar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HastaAdi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Tarih" Type="datetime" Nullable="true" />
+    <Property Name="RaporBaslangic" Type="datetime" Nullable="true" />
+    <Property Name="RaporBitis" Type="datetime" Nullable="true" />
+    <Property Name="RaporSebebi" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="RaporuVerenDoktor" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HastaneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Calisanlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CalisanAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CalisanSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CalisanTc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Doktorlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DoktorAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Bolum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DoktorTc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DoktorSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Musteriler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MusteriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MusteriSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MusteriTc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Randevular">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HastaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DoktorAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Bolum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RandevuSaati" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HastaTc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DoktorTc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="HastaneEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Calisanlar" EntityType="Self.Calisanlar" />
+          <EntitySet Name="Doktorlar" EntityType="Self.Doktorlar" />
+          <EntitySet Name="Musteriler" EntityType="Self.Musteriler" />
+          <EntitySet Name="Randevular" EntityType="Self.Randevular" />
+          <EntitySet Name="DoktorTc" EntityType="HastaneModel.DoktorTc" />
+          <EntitySet Name="HastaTc" EntityType="HastaneModel.HastaTc" />
+          <EntitySet Name="Reçeteler" EntityType="HastaneModel.Reçeteler" />
+          <EntitySet Name="CalisanTc" EntityType="HastaneModel.CalisanTc" />
+          <EntitySet Name="Raporlar" EntityType="HastaneModel.Raporlar" />
+        </EntityContainer>
+        <EntityType Name="DoktorTc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tcNoDoktor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HastaTc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tcNoHasta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HastaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Reçeteler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HastaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="0" />
+          <Property Name="DoktorAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ilaclar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tutar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CalisanTc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tcNoCalisan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Raporlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HastaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="0" />
+          <Property Name="RaporBaslangic" Type="DateTime" Precision="0" />
+          <Property Name="RaporBitis" Type="DateTime" Precision="0" />
+          <Property Name="RaporSebebi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RaporuVerenDoktor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HastaneModelStoreContainer" CdmEntityContainer="HastaneEntities">
+    <EntitySetMapping Name="Calisanlar">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.Calisanlar)">
+        <MappingFragment StoreEntitySet="Calisanlar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CalisanAdi" ColumnName="CalisanAdi" />
+          <ScalarProperty Name="CalisanSifre" ColumnName="CalisanSifre" />
+          <ScalarProperty Name="CalisanTc" ColumnName="CalisanTc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doktorlar">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.Doktorlar)">
+        <MappingFragment StoreEntitySet="Doktorlar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DoktorAdi" ColumnName="DoktorAdi" />
+          <ScalarProperty Name="Bolum" ColumnName="Bolum" />
+          <ScalarProperty Name="DoktorTc" ColumnName="DoktorTc" />
+          <ScalarProperty Name="DoktorSifre" ColumnName="DoktorSifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Musteriler">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.Musteriler)">
+        <MappingFragment StoreEntitySet="Musteriler">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MusteriAdi" ColumnName="MusteriAdi" />
+          <ScalarProperty Name="MusteriSifre" ColumnName="MusteriSifre" />
+          <ScalarProperty Name="MusteriTc" ColumnName="MusteriTc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Randevular">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.Randevular)">
+        <MappingFragment StoreEntitySet="Randevular">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HastaAdi" ColumnName="HastaAdi" />
+          <ScalarProperty Name="DoktorAdi" ColumnName="DoktorAdi" />
+          <ScalarProperty Name="Bolum" ColumnName="Bolum" />
+          <ScalarProperty Name="RandevuSaati" ColumnName="RandevuSaati" />
+          <ScalarProperty Name="HastaTc" ColumnName="HastaTc" />
+          <ScalarProperty Name="DoktorTc" ColumnName="DoktorTc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoktorTc">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.DoktorTc)">
+        <MappingFragment StoreEntitySet="DoktorTc">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="tcNoDoktor" ColumnName="tcNoDoktor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HastaTc">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.HastaTc)">
+        <MappingFragment StoreEntitySet="HastaTc">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="tcNoHasta" ColumnName="tcNoHasta" />
+          <ScalarProperty Name="HastaAdi" ColumnName="HastaAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reçeteler">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.Reçeteler)">
+        <MappingFragment StoreEntitySet="Reçeteler">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HastaAdi" ColumnName="HastaAdi" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="DoktorAdi" ColumnName="DoktorAdi" />
+          <ScalarProperty Name="Ilaclar" ColumnName="Ilaclar" />
+          <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CalisanTc">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.CalisanTc)">
+        <MappingFragment StoreEntitySet="CalisanTc">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="tcNoCalisan" ColumnName="tcNoCalisan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Raporlar">
+      <EntityTypeMapping TypeName="IsTypeOf(HastaneModel.Raporlar)">
+        <MappingFragment StoreEntitySet="Raporlar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HastaAdi" ColumnName="HastaAdi" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="RaporBaslangic" ColumnName="RaporBaslangic" />
+          <ScalarProperty Name="RaporBitis" ColumnName="RaporBitis" />
+          <ScalarProperty Name="RaporSebebi" ColumnName="RaporSebebi" />
+          <ScalarProperty Name="RaporuVerenDoktor" ColumnName="RaporuVerenDoktor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,38 @@
+﻿@using Hastane.Models
+
+<link href="~/Css/input.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Anasayfa";
+    HastaneEntities db = new HastaneEntities();
+}
+@using (Html.BeginForm("CalisanAnasayfa", "Calisan", FormMethod.Post))
+{
+
+    <label>Doktor Adını Göre Arayınız</label>
+    <input type="text" name="aranan" />
+    <button type="submit" class="turquoise-flat-button">Ara</button>
+
+}
+@{
+    List<Doktorlar> doktorListesi = ViewBag.aranmisDoktorListesi;
+    <h3>DOKTOR LİSTESİ</h3>
+    foreach (var item in doktorListesi)
+    {
+        <br />
+        <div style="background-color: aqua">
+            <label>
+                Doktor Adı:
+            </label>@item.DoktorAdi<br /><label>
+                Doktorun Bölümü:
+            </label> @item.Bolum <br /><label>
+                Doktor Tcsi:
+            </label> @item.DoktorTc <br /> <label>
+                Doktorun Şifresi:
+            </label>@item.DoktorSifre<br />
+        </div>
+
+    }
+}
+<br/>
+<button class="turquoise-flat-button" onClick="location.href='/Calisan/YeniDoktorEkle'">YENİ DOKTOR EKLE</button>
+<button class="turquoise-flat-button" onClick="location.href='/Calisan/DoktorSifreDegistir'">DOKTORUN ŞİFRESİNİ DEĞİŞTİR</button>

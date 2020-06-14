@@ -1,0 +1,30 @@
+﻿@using Hastane.Models
+
+@{
+    ViewBag.Title = "RandevularimiGoruntule";
+}
+
+<h2>Randevularımı Görüntüle</h2>
+
+@{
+    
+    HastaneEntities db = new HastaneEntities();
+var musteriListe = db.Randevular.Select(x => new { x.HastaAdi, x.Bolum, x.DoktorAdi,x.HastaTc,x.RandevuSaati }).ToList();
+    foreach (var item in musteriListe)
+    {
+        <br/>
+        <div style="background-color: aqua"><label>
+            Hasta Adı
+        </label>@item.HastaAdi:<br/><label>
+            Hasta Tcsi
+        </label> @item.HastaTc: <br /><label>
+            Doktor Adı
+        </label> @item.DoktorAdi: <br/> <label>
+            Doktorun Bölümü
+        </label>@item.Bolum :<br/> <label>
+            Randevu Saati
+        </label>@item.RandevuSaati: </div>
+        
+    }
+
+}

@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "DoktorGirisSayfasi";
+}
+
+<h2>Doktor Giriş Sayfası</h2>
+
+<link href="~/Css/input.css" rel="stylesheet" type="text/css" />
+@using (Html.BeginForm("DoktorGirisSayfasi", "Doktor", FormMethod.Post))
+{
+    <label>Tcnizi giriniz</label>
+    <input type="text" name="tcNo" />
+    <br />
+    <label>Şifre</label>
+    <input type="text" name="sifre" />
+    <br />
+    <input value="Giriş Yap" type="submit" class="turquoise-flat-button"/>
+}

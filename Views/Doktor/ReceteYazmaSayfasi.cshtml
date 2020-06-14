@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "ReçeteYazmaSayfasi";
+}
+
+<h2>Reçete Yazma Sayfası</h2>
+
+<link href="~/Css/input.css" rel="stylesheet" type="text/css" />
+@using (Html.BeginForm("ReceteYazmaSayfasi", "Doktor", FormMethod.Post))
+{
+    <div class="form-group form-control">
+        <label>İLAÇ ADI</label>
+        <input type="text" />
+        <br />
+    </div>
+    <div class="form-group form-control">
+        <label>TUTAR</label>
+        <input type="text" />
+        <br />
+    </div>
+        <button class="turquoise-flat-button" type="submit">Reçeteyi Kaydet</button>
+
+        }

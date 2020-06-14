@@ -1,0 +1,86 @@
+﻿input.wpcf7-form-control {
+    height: 25px;
+    line-height: 25px;
+    width: 260px;
+    padding: 10px;
+    border: 1px solid #E5E5E5;
+    background: #FBFBFB;
+    outline: none;
+    /* add submit button a rounded corner */
+    -o-border-radius: 5px;
+    /*for opera*/
+    -khtml-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    /* add input box a inset shadow  */
+    -moz-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2);
+    /*for Mozilla*/
+    -webkit-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2);
+    /*for Chrome and Safari*/
+    box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2);
+}
+
+    input.wpcf7-form-control:focus {
+        border: solid 1px #73ac57;
+    }
+
+textarea.wpcf7-form-control:focus {
+    border: solid 1px #ccc;
+}
+
+textarea.wpcf7-form-control {
+    height: 100px;
+    width: 520px;
+    padding: 10px 3px 3px 15px;
+    margin: 2px 13px 16px 0;
+    border: 1px solid #E5E5E5;
+    background: #FBFBFB;
+    outline: none;
+    /* add submit button a rounded corner */
+    -o-border-radius: 5px;
+    /*for opera*/
+    -khtml-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    /* add input box a inset shadow  */
+    -moz-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2);
+    /*for Mozilla*/
+    -webkit-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2);
+    /*for Chrome and Safari*/
+    box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2);
+}
+
+p.iletisim {
+    width: 271px;
+    float: left
+}
+
+input#gonder {
+    width: 100px;
+    line-height: 25px;
+    font-weight: bold;
+    color: #777;
+    margin-right: 30px;
+    background-color: #ececec;
+    text-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0;
+    padding: 3px 10px;
+    cursor: pointer;
+    /* add submit button a rounded corner */
+    -o-border-radius: 5px;
+    /*for opera*/
+    -khtml-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    /* add background gradient effet */
+    /*for Chrome and Safari*/
+    background: -webkit-gradient(linear, left top, left bottom, from(#ececec), to(#ddd));
+    /*for Mozilla*/
+    background: -moz-linear-gradient(top, #ececec, #ddd);
+    /*for IE*/
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ececec', endColorstr='#ddd');
+}
+
+    input#gonder:hover {
+        background: #303030;
+        color: #fff;
+    }

@@ -1,0 +1,61 @@
+﻿@using Hastane.Models
+
+@{
+    ViewBag.Title = "Receteler";
+    List<Reçeteler> receteList = ViewBag.receteList;
+}
+
+<link href="~/Css/input.css" rel="stylesheet" type="text/css" />
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Reçete Yaz", "DoktorAnasayfa", "Doktor")</li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Rapor Yaz", "RaporYaz", "Doktor")</li>
+
+            </ul>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Reçeteler", "Receteler", "Doktor")</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<h2>Receteler</h2>
+
+@using (Html.BeginForm("Receteler", "Doktor", FormMethod.Post))
+{
+    foreach (var recete in receteList)
+    {
+        <br />
+
+        <div style="background-color: blueviolet">
+            <input id="Id"
+                   name="Id"
+                   type="radio"
+                   value=@recete.Id />
+            @recete.HastaAdi<br />
+            @recete.DoktorAdi<br />
+            @recete.Ilaclar<br />
+            @recete.Tutar<br />
+        </div>
+    }
+    <br />
+    <label>İlaçları Güncelle</label>
+    <input type="text" name="ilac" />
+    <br />
+    <label>Tutarı Güncelle</label>
+    <input type="text" name="tutar" />
+    <br />
+    <button class="turquoise-flat-button" type="submit">Seçilen Reçeteyi Güncelle</button>
+}   

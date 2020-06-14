@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HastaneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Calisanlar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CalisanAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CalisanSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CalisanTc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Doktorlar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DoktorAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Bolum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DoktorTc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DoktorSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Musteriler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MusteriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MusteriSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MusteriTc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Randevular">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HastaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DoktorAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Bolum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RandevuSaati" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HastaTc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DoktorTc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="HastaneEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Calisanlar" EntityType="Self.Calisanlar" />
+    <EntitySet Name="Doktorlar" EntityType="Self.Doktorlar" />
+    <EntitySet Name="Musteriler" EntityType="Self.Musteriler" />
+    <EntitySet Name="Randevular" EntityType="Self.Randevular" />
+    <EntitySet Name="DoktorTc" EntityType="HastaneModel.DoktorTc" />
+    <EntitySet Name="HastaTc" EntityType="HastaneModel.HastaTc" />
+    <EntitySet Name="Reçeteler" EntityType="HastaneModel.Reçeteler" />
+    <EntitySet Name="CalisanTc" EntityType="HastaneModel.CalisanTc" />
+    <EntitySet Name="Raporlar" EntityType="HastaneModel.Raporlar" />
+  </EntityContainer>
+  <EntityType Name="DoktorTc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tcNoDoktor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HastaTc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tcNoHasta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HastaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Reçeteler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HastaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+    <Property Name="DoktorAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ilaclar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tutar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CalisanTc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tcNoCalisan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Raporlar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HastaAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+    <Property Name="RaporBaslangic" Type="DateTime" Precision="0" />
+    <Property Name="RaporBitis" Type="DateTime" Precision="0" />
+    <Property Name="RaporSebebi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RaporuVerenDoktor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>
